@@ -1,0 +1,5 @@
+import pyqrcode
+
+
+code = pyqrcode()
+
