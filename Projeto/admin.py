@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+# Classe contendo informações de administradores/gerentes0
+
+class Admin:
+    def __init__(self):
+        self.admin = [['davidrobert@moraisparking.com','admin'],
+                       ['alinemorais@moraisparking.com','admin']]
+        self.nome = [['David Robert De Lima Gomes'],
+                     ['Aline Morais']]
+=======
 from tkinter import *
 
 janela = Tk()
@@ -41,3 +51,4 @@ button_enter = Button(framelogin,text='Entrar', command=button_enter())
 tela_login()
 
 janela.mainloop()
+>>>>>>> 20713994b2dc01b05f6dcb2dade749d36a4974e3
