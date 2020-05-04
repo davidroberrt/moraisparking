@@ -1,96 +1,75 @@
 from tkinter import *
-<<<<<<< HEAD
 from admin import Admin
 
-adm = Admin()
-=======
+class Main:
+    def gestor(self):
+        self.janela = Tk()
+        self.janela.title("Sistema de estacionamento UNIESP 1.0")
+        self.janela.configure(bg="black")
+        self.janela.geometry("1000x600")
+        self.janela.resizable(False, False)
+        self.image1 = PhotoImage(file="images/bg_inicial.png")
+        self.image1 = self.image1.subsample(1, 1)
+        self.labelimage = Label(bg='black', image=self.image1)
+        self.janela.mainloop()
+    def login(self):
 
->>>>>>> 20713994b2dc01b05f6dcb2dade749d36a4974e3
-janela = Tk()
-janela.title("Sistema de estacionamento UNIESP 1.0")
-janela.configure(bg="black")
-janela.geometry("1000x600")
-janela.resizable(False, False)
-<<<<<<< HEAD
+        #Instâncias:
+        self.adm = Admin()
+        self.janela = Tk()
 
+        # Propriedades da janela:
+        self.janela.title("Sistema de estacionamento UNIESP 1.0")
+        self.janela.configure(bg="black")
+        self.janela.geometry("1000x600")
+        self.janela.resizable(False, False)
 
-#   BACKGROUNDS:
+        #   BACKGROUNDS:
 
-image1 = PhotoImage(file="images/login.png")
-image1 = image1.subsample(1, 1)
-labelimage = Label(janela,bg='black', image=image1)
+        self.image1 = PhotoImage(file="images/login.png")
+        self.image1 = self.image1.subsample(1, 1)
+        self.labelimage = Label(self.janela, bg='black', image=self.image1)
 
-
-#   FRAMES:
-framelogin = Frame(janela)
-
-#   FUNÇÕES:
-
-
-def tela_login():
-    labelimage.place(x=5, y=5, relwidth=1.0, relheight=1.0)
-    framelogin.pack(side=BOTTOM, pady='93', padx='1')
-=======
-#janela.iconbitmap("icon/favicon.ico") //no windows
-
-# IMPORTAÇÃO DE IMAGENS:
-
-image1 = PhotoImage(file="images/login.png")
-image1 = image1.subsample(1, 1)
-labelimage = Label(bg='black', image=image1)
-
-# FRAMES :
-
-framec = Frame(janela)
-frametext = Frame(janela)
-
-# WIDJETS: LABEL, ENTRY, BUTTON:
-def bton():
-    entry_login.get()
-text_login = Label(framec, text='Login:')
-text_senha = Label(framec, text='Senha:')
-entry_login = Entry(framec, width=35)
-entry_senha = Entry(framec, width=35)
-button_enter = Button(framec,text='Entrar', command=bton())
+        #   FRAMES:
+        self.framelogin = Frame(self.janela, bg='#6d0d10')
 
 
-# FUNÇÕES DE EMPACOTAMENTO:
+        #   FUNÇÕES:
 
-def tela_login():
-    labelimage.place(x=5, y=5, relwidth=1.0, relheight=1.0)
-    framec.pack(side=BOTTOM, pady='93', padx='1')
->>>>>>> 20713994b2dc01b05f6dcb2dade749d36a4974e3
-    text_login.pack()
-    entry_login.pack()
-    text_senha.pack()
-    entry_senha.pack()
-    button_enter.pack()
-
-
-<<<<<<< HEAD
-def enter_login():
-    login = entry_login.get()
-    senha = entry_senha.get()
-    for i in range(0,1):
-        if login == adm.admin[i][0]:
-            if senha == adm.admin[i][1]:
-                print("user on")
-            else:
-                print("erro")
+        def tela_login():
+            self.labelimage.place(x=5, y=5, relwidth=1.0, relheight=1.0)
+            self.framelogin.pack(side=BOTTOM, pady='93', padx='1')
+            self.text_login.grid(row=0, column=0, padx='2')
+            self.text_senha.grid(row=1, column=0, padx='2')
+            self.entry_login.grid(row=0, column=1)
+            self.entry_senha.grid(row=1, column=1)
+            self.button_enter.grid(row=2, column=1, pady='8')
 
 
-#   WIDJETS:
+        def enter_login():
+            self.login = self.entry_login.get()
+            self.senha = self.entry_senha.get()
+            for i in range(0, 1):
+                if (self.login) in self.adm.gestor:
+                    if (self.login == self.adm.gestor[i][0]) and self.senha == self.adm.gestor[i][1]:
+                        self.gestor()
+                    else:
+                        print("erro")
+                else:
+                    print("erro")
 
-text_login = Label(framelogin, text='Login:')
-text_senha = Label(framelogin, text='Senha:')
-entry_login = Entry(framelogin, width=35)
-entry_senha = Entry(framelogin, width=35)
-button_enter = Button(framelogin,text='Entrar', command=enter_login)
+            #   WIDJETS:
 
-tela_login()
-janela.mainloop()
-=======
+        # login:
 
-tela_login()
-janela.mainloop()
->>>>>>> 20713994b2dc01b05f6dcb2dade749d36a4974e3
+        self.text_login = Label(self.framelogin, text='Login:', bg='#6d0d10', fg='white')
+        self.text_senha = Label(self.framelogin, text='Senha:', bg='#6d0d10', fg='white')
+        self.entry_login = Entry(self.framelogin, width=35)
+        self.entry_senha = Entry(self.framelogin, width=35)
+        self.button_enter = Button(self.framelogin, text='Entrar', bg='#C02', fg='white', command=enter_login)
+
+        # página 1:
+
+        tela_login()
+        self.janela.mainloop()
+

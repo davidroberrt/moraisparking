@@ -4,7 +4,7 @@ class telas:
     def __init__(self):
         self.janela = Tk()
         self.janela.title("Sistema de estacionamento UNIESP 1.0")
-        self.janela.configure(bg="white")
+        self.janela.configure(bg="black")
         self.janela.geometry("1000x600")
         self.janela.resizable(False, False)
         self.image1 = PhotoImage(file="images/login.png")
